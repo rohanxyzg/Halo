@@ -12,7 +12,7 @@ myVideo.muted = true;
 var peer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '3030'
 })
 
 let myVideoStream
@@ -38,7 +38,7 @@ navigator.mediaDevices.getUserMedia({
     })
 
     let text = $('input')
-    console.log(text);
+    //console.log(text);
 
     $('html').keydown((e) => {
         if(e.which == 13 && text.val().length !== 0){
@@ -50,8 +50,9 @@ navigator.mediaDevices.getUserMedia({
 
     socket.on('createMessage', message => {
         
-        $('.messages').append(`<li class="message"><b>user</b><br/>${message}</li>`)
-        //console.log('this is coming from server', message);
+        $('.messages').append(`<li class="message"><b>user</b><br/>${message}</li>`);
+
+        console.log('this is coming from server', message);
         scrollToBottom();
     })
 })
